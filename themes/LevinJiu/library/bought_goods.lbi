@@ -1,0 +1,23 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $bought_goods} -->
+     <div id="bought_goods">
+     <div class="nmb">
+<div class="tt"><h3>{$lang.shopping_and_other}</h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+  <!--{foreach from=$bought_goods item=bought_goods_data}-->
+<div class="gmg left">
+<a href="{$bought_goods_data.url}"><img src="{$bought_goods_data.goods_thumb}" alt="{$bought_goods_data.goods_name}"  class="gi" /></a>
+<a class="gn" href="{$bought_goods_data.url}" title="{$bought_goods_data.goods_name}">{$bought_goods_data.short_name}</a>
+           <p class="gp">
+           <span class="market_price">{$lang.market_price}<b> {$goods.market_price}</b></span><br/>
+           <span class="shop_price">{$lang.shop_price}<b> <!-- {if $bought_goods_data.promote_price neq 0} -->{$bought_goods_data.formated_promote_price}<!-- {else}-->{$bought_goods_data.shop_price}<!--{/if}--></b></span>
+           </p>
+
+</div>
+<!-- {/foreach} -->
+<div class="clear"></div>
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+    </div>
+    <!-- {/if} -->

@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="new_articles">
+<div class="nmb">
+<div class="tt"><h3>最新资讯</h3><span></span></div>
+<div class="ct">
+<div class="bgw">
+<ul>
+<!--{foreach from=$new_articles item=article}-->
+  <li class="s1">
+	[<a href="{$article.cat_url}">{$article.cat_name}</a>] <a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:10:"...":true}</a>
+	</li>
+<!--{/foreach}-->
+</ul>
+</div>
+</div>
+<div class="bt"><span></span></div>
+</div>
+</div>

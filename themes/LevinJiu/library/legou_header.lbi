@@ -1,0 +1,96 @@
+<link href="../style.css" rel="stylesheet" type="text/css" /> 
+<?php
+    $sql = 'SELECT SUM(goods_number) AS number, SUM(goods_price * goods_number) AS amount' .
+           ' FROM ' . $GLOBALS['ecs']->table('cart') .
+           " WHERE session_id = '" . SESS_ID . "' AND rec_type = '" . CART_GENERAL_GOODS . "'";
+    $row = $GLOBALS['db']->GetRow($sql);
+
+    if ($row)
+    {
+        $number = intval($row['number']);
+        $amount = floatval($row['amount']);
+    }
+    else
+    {
+        $number = 0;
+        $amount = 0;
+    }
+   
+ ?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div id="header">
+<div class="main posr">
+<h1><a href="../index.php" name="top">{$keywords}</a></h1>
+<div id="topnav">
+
+<div class="right" id="ECS_CARTINFO">   
+您的购物车中共有  <b><?=$number?></b>  个商品，合计  <b><?=price_format($amount, false)?></b> | <span class="cart"><a href="../flow.php">查看购物车</a></span> 
+</div>
+{insert_scripts files='transport.js,utils.js'}
+<div id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </div>
+<div class="clear"></div>
+</div>
+<div class="topnavs"><a href="../index.php"{if $navigator_list.config.index eq 1} class="act"{/if}><strong>{$lang.home}</strong></a> | <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a> 
+                        <!-- {if !$smarty.foreach.nav_top_list.last} -->
+             |
+            <!-- {/if} -->
+    <!-- {/foreach} --><span></span></div>
+<div class="hmnav" id="mainnav">
+<ul id="nav">
+<!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+<li class="top" id="{if $nav.cat_arr}cat{/if}">
+<a href="{$nav.url}">{$nav.name}</a>
+{if $nav.cat_arr}
+<ul class="sub">
+<!-- {foreach name=cat_list from=$nav.cat_arr item=cat} -->
+{if ($cat.level gt 0) and ($cat.level lt 3)}
+{if $cat.level eq 1}
+<li class="fly"><a href="category.php?id={$cat.cat_id}">{$cat.cat_name}</a></li>
+{/if}
+{/if}
+<!-- {/foreach} -->
+</ul>
+{/if}
+</li>
+<!-- {/foreach} -->
+</ul></div>
+<div class="hsea" id="header_search">
+<div class="key">
+    {literal}
+ <script type="text/javascript">
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    </script>
+       {/literal}
+ {if $searchkeywords}
+   {$lang.hot_search} ：
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+</div>
+<div class="sb">
+ <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" >
+   <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}" class="text tkeyword"/>
+   <input name="imageField" type="submit" value="" class="bnt bsubmit" style="cursor:pointer;" />
+   </form>
+</div>
+</div>
+<h2 id="slogen">500城市免运费,1000门店售后服务,1000亿采购规模优势</h2>
+</div></div>

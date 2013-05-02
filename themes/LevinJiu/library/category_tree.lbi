@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="categroup">
+
+        <!--{foreach from=$categories item=cat name=cat}-->
+          <dt>
+            <h4 id="cat_0{$smarty.foreach.cat.iteration}"><a href="{$cat.url}" <!--{if $category eq $cat.id} class="cur"{/if}--> >{$cat.name|escape:html}</a></h4>
+            <p><!--{foreach from=$cat.cat_id item=child}-->
+            <a href="{$child.url}" <!--{if $category eq $child.id} class="cur"{/if}--> >{$child.name|escape:html}</a>
+            <!--{/foreach}--></p>
+          </dt>
+        <!--{/foreach}--> 
+          
+</div>

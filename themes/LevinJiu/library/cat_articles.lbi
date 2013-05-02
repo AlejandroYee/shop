@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="cat_articles">
+<div class="nmb">
+<div class="tt"><h3><a href="{$articles_cat.url}">{$articles_cat.name|escape:html}</a></h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+<ul>
+<!--{foreach from=$articles item=article_item}-->
+  <li class="s1"><a href="{$article_item.url}" title="{$article_item.title|escape:html}">{$article_item.short_title}</a></li>
+  <!--{/foreach}-->
+</ul> 
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+</div>

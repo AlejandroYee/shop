@@ -1,0 +1,37 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $new_goods} -->
+<div id="recommend_new">
+<!-- {if $cat_rec_sign neq 1} -->
+<div class="nmb" id="itemNew">
+  <div class="tt">
+   <h3>新品上市</h3>
+     {if $cat_rec[2]}
+      <h2><a href="javascript:void(0)" onmouseover="change_tab_style('itemNew', 'h2', this);get_cat_recommend(2, 0);">{$lang.all_goods}<span></span></a></h2>
+      {foreach from=$cat_rec[2] item=rec_data}
+      <h2 class="h2bg"><a href="javascript:void(0)" onmouseover="change_tab_style('itemNew', 'h2', this);get_cat_recommend(2, {$rec_data.cat_id})">{$rec_data.cat_name}<span></span></a></h2>
+      {/foreach}
+      {/if}
+      <span></span>
+  </div>
+  <div id="show_new_area" class="ct"><div class="bgw p1-0">
+  <!-- {/if} -->
+  <!--{foreach name=new_goods from=$new_goods item=goods}-->
+  <div class="gmg left" id="rec_0{$smarty.foreach.new_goods.iteration}">
+         <span class="news"></span>
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="gi" /></a>
+           <a class="gn" href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a>
+           <p class="gp">
+           <span class="market_price">{$lang.market_price}<b> {$goods.market_price}</b></span><br/>
+           <span class="shop_price">{$lang.shop_price}<b> <!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></b></span>
+           </p>
+        </div>
+  <!--{/foreach}-->
+  <div class="clear"></div>
+  <!-- {if $cat_rec_sign neq 1} -->
+  </div>
+</div>
+<div class="bt"><span></span></div>
+</div>
+  <!-- {/if} -->
+  </div>
+<!-- {/if} -->

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ECShop_mobile</title>
+</head>
+
+<body>
+<p align='left'>
+{if $article_data}
+    {$article_data.title}<br/>
+    --------------<br/>
+    {$article_data.content}<br/>
+{else}
+    错误地址<br/>
+{/if}
+--------------<br/>
+<a href="javascript:history.back(-1)">回上一页</a><br/>
+<a href='index.php'>返回首页</a>
+{$footer}
+</p>
+<!-- legouday.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8bfd02af36bed59ed7a384ff7fc237f3' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

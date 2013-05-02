@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $group_buy_goods} -->
+<div id="group_buy">
+<div class="nmb">
+<div class="tt"><h3>{$lang.group_buy_goods}</h3><em><a href="group_buy.php"><img src="../images/more.gif"></a></em><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+      <!--{foreach from=$group_buy_goods item=goods}-->
+      <div class="gml">
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.goods_name|escape:html}" class="gi" /></a><br />
+					 <a class="gn" href="{$goods.url}" title="{$goods.goods_name|escape:html}">{$goods.short_style_name|escape:html}</a>
+           <p class="gp">{$goods.last_price}</p>
+        </div>
+      <!--{/foreach}-->
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+</div>
+<!-- {/if} -->

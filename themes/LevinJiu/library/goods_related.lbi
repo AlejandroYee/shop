@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_goods} -->
+<div id="goods_related">
+<div class="nmb">
+<div class="tt"><h3>{$lang.releate_goods}</h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+<!--{foreach from=$related_goods item=releated_goods_data}-->
+        <div class="gml">
+         <a href="{$releated_goods_data.url}"><img src="{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name}" class="gi" /></a>
+        <a class="gn" href="{$releated_goods_data.url}" title="{$releated_goods_data.goods_name}">{$releated_goods_data.short_name}</a>
+      <p class="gp"><span class="shop_price"><b>{$releated_goods_data.shop_price}</b></span></p> 
+         </div> 
+        <!--{/foreach}-->
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+</div>
+<!-- {/if} -->

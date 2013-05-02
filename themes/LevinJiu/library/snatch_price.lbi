@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="ECS_PRICE_LIST">
+<div class="nmb">
+<div class="tt"><h3>{$lang.new_price}</h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+    <ul class="clearfix">
+    <!--{foreach from=$price_list item=item}-->
+    <li>{$item.user_name}&nbsp;&nbsp;{$item.bid_price}</li>
+    <!--{/foreach}-->
+    </ul>
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+</div>

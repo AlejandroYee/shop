@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $cat_list} -->
+<div id="categorys">
+  <div id="category_tree">
+  <div class="nmb">
+<div class="tt"><h3>商品类别</h3><span></span></div>
+<div class="ct"><div class="p1-0 bgw">
+<ul>
+  <!-- {foreach from=$cat_list item=cat} -->
+     <li><a href="{$cat.url}">{$cat.cat_name|escape:html} {if $cat.goods_num}({$cat.goods_num}){/if}</a></li>
+    <!--{/foreach}--> 
+</ul>
+<div class="clear"></div>
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+  </div>
+</div>
+<!-- {/if} -->

@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  {* 包含脚本文件 *}{insert_scripts files='xwmoban.js'}
+<div id="qq_category">
+				
+                 <div class="ul_1">
+                 <!-- {foreach name=my_cat_tree from=$categories  item=cat} -->
+                
+                   	<div class="li_1">
+                        <img class="img-ico" src="../images/red/ico{$smarty.foreach.my_cat_tree.iteration}.gif"> 
+                        <span class="qq_item"><a href="{$cat.url}">{$cat.name|escape:html}</a></span>
+                    	
+                        <span class="fly"></span>
+                        <ul class="ul_2">
+                    	<!-- {foreach  from=$cat.cat_id  item=child} -->
+                         <li>
+                         	<h4><a  href="{$child.url}">{$child.name|escape:html}</a></h4>
+                            <!-- {foreach  from=$child.cat_id  item=child3} -->
+                            	<a class="aa3"  href="{$child3.url}">{$child3.name|escape:html}</a>
+                            <!-- {/foreach} -->
+                         
+                         </li>
+                         
+      					<!-- {/foreach} -->
+                    </ul>
+                    </div> <!--/li_1-->
+               
+                 <!--{/foreach}-->
+                  </div><!--/ul_1-->
+</div>  <!--/left-->
+
+<script type="text/javascript">
+	qq_menu();
+</script>

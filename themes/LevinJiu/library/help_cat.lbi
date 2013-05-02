@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="help_cat">
+<img src="../images/helpcattit.gif" />
+<!-- {foreach from=$helps item=help_cat} -->
+<div class="nmb">
+<div class="tt"><h3><a href='{$help_cat.cat_id}' title="{$help_cat.cat_name}">{$help_cat.cat_name}</a></h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+ <!-- {foreach from=$help_cat.article item=item} -->
+  <li class="s1"><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></li>
+    <!--{/foreach}-->
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+<!-- {/foreach} -->
+</div>

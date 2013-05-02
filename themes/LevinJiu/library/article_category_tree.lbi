@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $article_categories} -->
+<div id="article_category_tree">
+<div class="nmb">
+<div class="tt"><h3>{$lang.article_cat}</h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+<ul>
+ <!--{foreach from=$article_categories item=cat}-->
+ <li class="s1"><a class="l1" href="{$cat.url}">{$cat.name|escape:html}</a></li>
+<!--{foreach from=$cat.children item=child}-->
+  <li class="s2"><a class="l2" href="{$child.url}" style="background-image:none;">{$child.name|escape:html}</a></li>
+      <!--{/foreach}-->
+    <!--{/foreach}-->
+</ul></div></div>
+<div class="bt"><span></span></div>
+</div>
+</div>
+<!-- {/if} -->

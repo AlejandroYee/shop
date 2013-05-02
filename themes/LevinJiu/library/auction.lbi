@@ -1,0 +1,12 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $auction_list} -->
+<div id="auction">
+<div class="nmb">
+<div class="tt"><h3>{$lang.auction_goods}</h3><em><a href="auction.php"><img src="../images/more.gif"></a></em><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+</div>
+<!-- {/if} -->

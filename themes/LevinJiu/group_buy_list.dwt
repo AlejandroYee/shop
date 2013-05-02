@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<!--当前位置 end-->
+<div class="main mbt10" id="pgroup_buy_list">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  <!--left start-->
+  <div id="csb">
+    <!-- TemplateBeginEditable name="左边区域" -->
+    <!-- #BeginLibraryItem "/library/cart.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/goods_related.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/goods_fittings.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/goods_article.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/goods_attrlinked.lbi" --><!-- #EndLibraryItem -->
+    <!-- TemplateEndEditable -->
+    <!-- TemplateBeginEditable name="左边广告区域（宽200px）" -->
+    <!-- TemplateEndEditable -->
+    <!--AD end-->
+    <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+  </div>
+  <!--left end-->
+  <!--right start-->
+  <div id="cma">
+	 <!-- TemplateBeginEditable name="右边通栏广告（宽750px）" -->
+   <!-- TemplateEndEditable -->
+   <div id="auc-gro-sna-list">
+   <div class="nmb">
+<div class="tt"><h3>{$lang.gb_goods_name}</h3><span></span></div>
+<div class="ct"><div class="p1-0 bgw">
+      <!-- {if $gb_list} 如果有团购活动 -->
+      <!-- {foreach from=$gb_list item=group_buy} 循环团购活动开始 -->
+      <div class="gml">
+      <a href="{$group_buy.url}"><img src="{$group_buy.goods_thumb}" border="0" alt="{$group_buy.goods_name|escape:html}" class="gi"/></a>
+      <p class="gn">{$lang.gb_goods_name}<a href="{$group_buy.url}" class="f5">{$group_buy.goods_name|escape:html}</a></p>
+      <p class="gd">{$lang.act_time}：<span class="f4">{$group_buy.formated_start_date} -- {$group_buy.formated_end_date}</span></p>
+      <p class="gp"><!-- {foreach from=$group_buy.price_ladder item=item} --><span class="f4">{$item.amount}</span><span>以内：</span><b>{$item.formated_price}</b><span>/件</span> | <!-- {/foreach} --></p>
+      </div>     
+       <!--{/foreach}-->
+      <!-- {else} -->
+<div id="norecord">{$lang.group_goods_empty}</div>
+ <!-- {/if} -->
+ </div></div>
+<div class="bt"><span></span></div>
+</div></div>
+  <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+    </div>
+  <!--right end-->
+  <div class="clear"></div>
+    <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

@@ -1,0 +1,92 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "正在处理您的请求...";
+</script>
+<!-- {if $promotion_goods} -->
+<script >
+var Tday = new Array();
+var daysms = 24 * 60 * 60 * 1000
+var hoursms = 60 * 60 * 1000
+var Secondms = 60 * 1000
+var microsecond = 1000
+var DifferHour = -1
+var DifferMinute = -1
+var DifferSecond = -1
+function clock(key)
+  {
+   var time = new Date()
+   var hour = time.getHours()
+   var minute = time.getMinutes()
+   var second = time.getSeconds()
+   var timevalue = ""+((hour > 12) ? hour-12:hour)
+   timevalue +=((minute < 10) ? ":0":":")+minute
+   timevalue +=((second < 10) ? ":0":":")+second
+   timevalue +=((hour >12 ) ? " PM":" AM")
+   var convertHour = DifferHour
+   var convertMinute = DifferMinute
+   var convertSecond = DifferSecond
+   var Diffms = Tday[key].getTime() - time.getTime()
+   DifferHour = Math.floor(Diffms / daysms)
+   Diffms -= DifferHour * daysms
+   DifferMinute = Math.floor(Diffms / hoursms)
+   Diffms -= DifferMinute * hoursms
+   DifferSecond = Math.floor(Diffms / Secondms)
+   Diffms -= DifferSecond * Secondms
+   var dSecs = Math.floor(Diffms / microsecond)
+   
+   if(convertHour != DifferHour) a=""; //<font color=red>"+DifferHour+"</font>天
+   if(convertMinute != DifferMinute) b="<font color=red>"+DifferMinute+"</font>小时";
+   if(convertSecond != DifferSecond) c="<font color=red>"+DifferSecond+"</font>分"
+     d="<font color=red>"+dSecs+"</font>秒"
+     if (DifferHour>0) {a=a} 
+     else {a=''}
+   document.getElementById("leftTime"+key).innerHTML = a + b + c + d; //显示倒计时信息
+  }
+</script>
+<div id="recommend_promotion">
+<div id="top10">
+<div class="nmb">
+<div class="tt">
+  <h3><a class="more" href="../search.php?intro=promotion">&gt;&gt;&gt;更多</a></h3><span></span></div>
+ <div class="ct">
+  <ul class="left" id="promo">
+<!--{foreach from=$promotion_goods key=key item=goods name="promotion_foreach"}-->
+	<!-- {if $smarty.foreach.promotion_foreach.iteration<10}-->
+<li>
+<div class="first">
+<em>{$smarty.foreach.promotion_foreach.iteration}</em>. {$goods.name}
+</div>
+<div class="last clearfix">
+<em>{$smarty.foreach.promotion_foreach.iteration}</em>
+<a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.name}</a>
+<div class="clear"></div>
+<div class="imgbox"><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></div>
+<p class="gp">
+<span class="market_price">{$lang.market_price}<b>{$goods.market_price}</b></span><br/>
+<span class="market_price">{$lang.shop_price}<b>{$goods.shop_price}</b></span><br/>
+<span class="shop_price">{$lang.promote_price}<b>{$goods.promote_price}</b></span><br/>
+<span class="time mt10" size="2">剩余<b class="f4_t" id="leftTime{$key}"></b>  </span>
+<span class="action mt10"><a href="javascript:addToCart({$goods.id})"><img src="../images/btn_buy_s.gif" class="mar10"></a>
+<a href="{$goods.url}"><img src="../images/btn_det.gif"></a>
+</span>         </p>
+</div>
+</li>
+	<!-- {/if} -->		
+ <script>Tday[{$key}] = new Date("{$goods.gmt_end_time}");   
+window.setInterval(function()
+{clock({$key});}, 1000); </script>
+ <!-- {/foreach} -->
+  </ul>
+     <div class="clear"></div>
+ </div>
+<div class="bt"><span></span></div>
+</div>
+</div>
+</div>
+<script>elems("promo","cur");</script>
+<script type="text/javascript">
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+<!-- {/if} -->

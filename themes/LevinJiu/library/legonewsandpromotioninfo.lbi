@@ -1,0 +1,39 @@
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<div id="newsandpromotioninfo">
+<div class="nmb">
+<div class="tt">
+<h3 id="t01" onmouseover="tabChange(this,'tabcontent2')" class="cli">{$lang.shop_notice}<span></span></h3>
+<h3 id="t02" onmouseover="tabChange(this,'tabcontent2')">最新资讯<span></span></h3>
+<h3 id="t03" onmouseover="tabChange(this,'tabcontent2')">{$lang.promotion_info}<span></span></h3>
+<div class="clear"></div>
+</div>
+<div class="ct" id="tabcontent2">
+<ul name="tabul" id="clear">
+{$shop_notice}</ul>
+<ul class="hidden">
+<!--{foreach from=$new_articles item=article}-->
+  <li class="s1">
+	[<a href="{$article.cat_url}">{$article.cat_name}</a>] <a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:10:"...":true}</a>
+	</li>
+<!--{/foreach}-->
+</ul>
+<ul class="hidden">
+    <!-- {foreach from=$promotion_info item=item key=key} -->
+ <li class="s1">  <!-- {if $item.type eq "snatch"} -->
+    <a href="snatch.php" title="{$lang.$item.type}">{$lang.snatch_promotion}</a>
+    <!-- {elseif $item.type eq "group_buy"} -->
+    <a href="group_buy.php" title="{$lang.$item.type}">{$lang.group_promotion}</a>
+    <!-- {elseif $item.type eq "auction"} -->
+    <a href="auction.php" title="{$lang.$item.type}">{$lang.auction_promotion}</a>
+    <!-- {elseif $item.type eq "favourable"} -->
+    <a href="activity.php" title="{$lang.$item.type}">{$lang.favourable_promotion}</a>
+    <!-- {elseif $item.type eq "package"} -->
+    <a href="package.php" title="{$lang.$item.type}">{$lang.package_promotion}</a>
+    <!-- {/if} -->
+    <a href="{$item.url}" title="{$lang.$item.type} {$item.act_name}{$item.time}">{$item.act_name}</a></li>
+    <!-- {/foreach} --> 
+</ul>
+</div>
+</div>
+<img src="../images/levin/800cs.gif"/>
+</div>

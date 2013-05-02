@@ -1,0 +1,31 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $tag_nums }
+<div id="relatetag">
+<!--{foreach from=$tag_list item=data key=key}-->
+{if $key neq $appid}
+{if $data.type eq "ecshop"}
+<div class="nmb">
+<div class="tt"><h3>{$data.name}</h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+ <!--{foreach from=$data.data item=tag key=key}-->
+        <img src="{$tag.image}" width="100" height="100" /><br />
+        <a href="{$tag.url}">{$tag.goods_name}</a>
+        <!--{/foreach}--> 
+        </div></div>
+<div class="bt"><span></span></div>
+</div>
+    {elseif $data.type eq "discuz"}  
+    <div class="nmb">
+<div class="tt"><h3>{$data.name}</h3><span></span></div>
+<div class="ct"><div class="bgw p1-0">
+<!--{foreach from=$data.data item=tag key=key}-->
+        <a href="{$tag.url}">{$tag.subject}</a><br />
+        <!--{/foreach}-->  
+</div></div>
+<div class="bt"><span></span></div>
+</div>
+{/if}
+{/if}    
+<!--{/foreach}-->
+</div>
+{/if}  

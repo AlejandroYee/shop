@@ -1,0 +1,24 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="cat_goods">
+<div class="nmb" id="catgood_{$goods_cat.id}">
+ <div class="tt">
+  <h3><a href="{$goods_cat.url}">{$goods_cat.name|escape:html}</a></h3><span></span>
+  </div>
+    <div class="ct">
+    <div class="bgw p1-0">
+      <!--{foreach from=$cat_goods item=goods}-->
+      <div class="gmg left">
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="gi" /></a>
+           <a href="{$goods.url}" class="gn" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a>
+           <p class="gp">
+           <span class="market_price">{$lang.market_price}<b> {$goods.market_price}</b></span><br/>
+           <span class="shop_price">{$lang.shop_price}<b> <!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></b></span>
+           </p>
+        </div>
+      <!--{/foreach}-->
+      <div class="clear"></div>
+    </div>
+    </div>
+    <div class="bt"><span></span></div>
+ </div>
+</div>
