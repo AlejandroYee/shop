@@ -1,14 +1,14 @@
 <html>
 <head>
-<title>TrustPay - 支付请求</title>
+<title>TrustPay - 支锟斤拷锟斤拷锟斤拷</title>
 <meta http-equiv='Content-Type' content='text/html; charset=GB2312'>
 </head>
 <body>
 <?php 
 	require("api.php");
 
-	//$add = "http://127.0.0.1:8080/axis/services/B2CWarpper?wsdl";
-	$add = "http://187.61.1.5:8080/axis/services/B2CWarpper?wsdl";
+	$add = "http://127.0.0.1:8080/axis/services/B2CWarpper?wsdl";
+//	$add = "http://187.61.1.5:8080/axis/services/B2CWarpper?wsdl";
 
 	$tOrderNo = $_POST['OrderNo'];
 	$tOrderDesc = iconv("GBK","UTF-8",$_POST['OrderDesc']);
@@ -35,7 +35,7 @@
 	$merchantPayment = new MerchantPayment($add,$merchantPaymentRequest);
 	$merchantPaymentResult = $merchantPayment->invoke();
 	//$merchantPayment->showResult();
-	//显示结果
+	//锟斤拷示锟斤拷锟�
 	if($merchantPaymentResult->isSucess==TRUE)
 	{
 		$PaymentURL = $merchantPaymentResult->paymentURL;
@@ -50,7 +50,7 @@
 
 ?>
 	<script language=javascript>
-	//	支付请求页面跳转
+	//	支锟斤拷锟斤拷锟斤拷页锟斤拷锟斤拷转
 		var redirectURL="<?=$PaymentURL?>";
 		if(redirectURL!=null&&redirectURL!="")
 		{

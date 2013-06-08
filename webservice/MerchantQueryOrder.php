@@ -1,14 +1,14 @@
 <html>
 <head>
-<title>TrustPay - 查询订单</title>
+<title>TrustPay - 锟斤拷询锟斤拷锟斤拷</title>
 <meta http-equiv='Content-Type' content='text/html; charset=GB2312'>
 </head>
 <body>
 <?php 
 	require("api.php");
 
-        $add = "http://127.0.0.1:8080/axis/services/B2CWarpper?wsdl";
-	//$add = "http://187.61.1.5:8080/axis/services/B2CWarpper?wsdl";
+	$add = "http://127.0.0.1:8080/axis/services/B2CWarpper?wsdl";
+//	$add = "http://187.61.1.5:8080/axis/services/B2CWarpper?wsdl";
 	
 	$tOrderNo = $_POST['OrderNo'];
 	$tQueryType = $_POST['QueryType'];
@@ -16,9 +16,8 @@
 	$merchantQueryOrderRequest = new MerchantQueryOrderRequest($tOrderNo,$tQueryType);
 	$merchantQueryOrder = new MerchantQueryOrder($add,$merchantQueryOrderRequest);
 	$merchantQueryOrderResult = $merchantQueryOrder->invoke();
-        var_dump($merchantQueryOrder);die;
-	$merchantQueryOrder->showResult();
-	//显示结果
+	//$merchantQueryOrder->showResult();
+	//锟斤拷示锟斤拷锟�
 	if($merchantQueryOrderResult->isSucess==TRUE)
 	{
 		print("<br>Sucess!!!"."</br>");
@@ -32,14 +31,14 @@
 		print "<br>PayAmount:".$merchantQueryOrderResult->order->PayAmount."</br>";		
 		print "<br>RefundAmount:".$merchantQueryOrderResult->order->RefundAmount."</br>";		
 		$count = count($merchantQueryOrderResult->order->OrderItems);
-		print "<br>订单明细：</br>";
+		print "<br>锟斤拷锟斤拷锟斤拷细锟斤拷</br>";
 		for ($i = 0; $i < $count; $i++) 
 		{	
 			$item = $merchantQueryOrderResult->order->OrderItems[$i];
 			print "<br>ProductID:".$item->ProductID."</br>";
 			print "<br>ProductName:".$item->ProductName."</br>";
 			print "<br>Qty:".$item->Qty."</br>";
-			print "<br>UnitPrice单位价格:".$item->UnitPrice."</br>";
+			print "<br>UnitPrice锟斤拷位锟桔革拷:".$item->UnitPrice."</br>";
 		}
 	}
 	else
